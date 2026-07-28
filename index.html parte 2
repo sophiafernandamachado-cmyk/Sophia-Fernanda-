@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog de Tecnologia - Aprimorado</title>
+  <style>
+    /* Variáveis para Tema Claro (Padrão) */
+    :root {
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-color: #222222;
+      --text-muted: #666666;
+      --primary-color: #0066cc;
+      --border-color: #e0e0e0;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* Variáveis para Tema Escuro */
+    body.dark-mode {
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #e0e0e0;
+      --text-muted: #aaa;
+      --primary-color: #4da6ff;
+      --border-color: #333333;
+      --shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+    }
+
+    /* Botão Alternar Tema Escuro */
+    .theme-toggle-btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .theme-toggle-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Layout Responsivo em Cards */
+    .posts-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .card p {
+      color: var(--text-color);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .card-footer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Blog de Tecnologia</h1>
+    <button class="theme-toggle-btn" id="themeToggle">🌙 Modo Escuro</button>
+  </header>
+
+  <main>
+    <section class="posts-container">
+      <article class="card">
+        <div>
+          <h2>Aprimorando Interfaces Web</h2>
+          <p>Aprender HTML, CSS e JavaScript nos permite reestruturar páginas antigas, aplicando acessibilidade, responsividade e temas visuais agradáveis aos leitores.</p>
+        </div>
+        <div class="card-footer">Publicado por Marcelo • 2026</div>
+      </article>
+
+      <article class="card">
+        <div>
+          <h2>A Importância da Acessibilidade</h2>
+          <p>Garantir que a legibilidade das fontes e o contraste entre as cores sejam adequados facilita a navegação de todas as pessoas, sem a necessidade constante de zoom.</p>
+        </div>
+        <div class="card-footer">Publicado por Giulliana • 2026</div>
+      </article>
+
+      <article class="card">
+        <div>
+          <h2>Modo Escuro e Experiência do Usuário</h2>
+          <p>O modo escuro reduz a fadiga visual e economiza bateria em telas OLED. Implementar essa funcionalidade com JavaScript torna o site moderno e dinâmico.</p>
+        </div>
+        <div class="card-footer">Publicado por Equipe Start • 2026</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Blog de Tecnologia. Projeto desenvolvido durante o curso da Alura.</p>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggleBtn.textContent = '🌞 Modo Claro';
+      } else {
+        themeToggleBtn.textContent = '🌑 Modo Escuro';
+      }
+    });
+  </script>
+</body>
+</html>
